@@ -13,9 +13,14 @@ function addGIF(imgURL) {
 	$('#results').append($newGIF);
 }
 
-const $searchButton = $('#submit');
-$searchButton.on('click', function(e) {
+const $searchForm = $('#search');
+$searchForm.on('submit', function(e) {
 	e.preventDefault();
 	let $searchText = $('input').val();
 	getGIF($searchText);
+});
+
+$('#remove').on('click', function(e) {
+	e.preventDefault();
+	$('#results').empty();
 });
