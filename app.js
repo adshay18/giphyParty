@@ -1,4 +1,5 @@
 console.log("Let's get this party started!");
+const $userInput = $('input');
 
 async function getGIF(term) {
 	const res = await axios.get(
@@ -16,7 +17,8 @@ function addGIF(imgURL) {
 const $searchForm = $('#search');
 $searchForm.on('submit', function(e) {
 	e.preventDefault();
-	let $searchText = $('input').val();
+	let $searchText = $userInput.val();
+	$userInput.val('');
 	getGIF($searchText);
 });
 
